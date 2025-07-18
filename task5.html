@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="activity(event)">
+        <h2>Password Generator</h2>
+        <label>Enter a Name</label>
+        <input placeholder="Name" type="text" id="name" required /><br><br>
+        <label>Enter a DOB</label>
+        <input placeholder="Date-of-Birth" type="date" id="dob" required/><br><br>
+        <input type="submit"/>
+    </form>
+    <h1 id="show"></h1>
+    <script>
+        function activity(event){
+            event.preventDefault();
+            let name=document.getElementById("name").value.trim();
+            let dobvalue=document.getElementById("dob").value
+
+            let year= dobvalue.split("-")[0];
+            document.getElementById("show").innerHTML=  name + year 
+          
+           
+            console.log(name)
+            document.getElementById("name").value=""
+            document.getElementById("dob").value=""
+
+        }
+    </script>
+</body>
+</html>

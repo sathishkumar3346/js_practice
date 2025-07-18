@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border: 2px solid black;
+            width: 50%;
+            height: 300px;
+        }
+        #insidebox{
+            background-color: aqua;
+            height: 100%;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <input placeholder="enter a width" required id="inp" value=""/>
+    <button onclick="convert()">Convert</button><br><br>
+    <div id="box">
+        <div id="insidebox"></div>
+    </div>
+    <script>
+        function convert(){
+          let inp =document.getElementById("inp").value
+          let inside=document.getElementById("insidebox")
+          inside.style.width=inp
+          document.getElementById("inp").value=""
+        }
+    </script>
+</body>
+</html>

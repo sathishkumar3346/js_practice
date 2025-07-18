@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            max-width: 300px;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Enter a image Url</h2>
+        <input type="text" id="img1" placeholder="enter a 1st image url" />
+        <br><br>
+        <input type="text" id="img2" placeholder="enter a 2nd image url" />
+        <br><br>
+        <button onclick="task1()">Submit</button>
+        <br><br>
+        <img src="" id="firstimg" />
+        <img src="" id="secondimg" />
+    </div>
+    <script>
+        function task1() {
+            let img1 = document.getElementById("img1").value
+            let img2 = document.getElementById("img2").value
+            let photo1 = document.getElementById("firstimg");
+            let photo2 = document.getElementById("secondimg");
+
+            if ((img1.trim() === "") && (img2.trim() === "")) {
+                alert("enter a valid url")
+            } else {
+                photo1.src = img1
+                photo2.src = img2
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

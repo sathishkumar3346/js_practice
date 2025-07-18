@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,th,td{
+            border: 2px solid black;
+            border-collapse:collapse;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="data(event)">
+       <label>enter a Name</label>
+       <input placeholder="Name" id="name" type="text" required/><br><br>
+       <label>enter a Email</label>
+       <input placeholder="Email" id="email" type="email" required/><br><br>
+       <label>enter a age</label>
+       <input placeholder="Age" id="age" type="number" required/><br><br>
+       <label>enter a Number</label>
+       <input placeholder="Number" id="num" type="number" required/><br><br>
+       <input type="submit" value="submit"/>
+    </form>
+    <br><br>
+    <table id="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Number</th>
+        </tr>
+        
+    </table>
+    <script>
+        function data(event){
+            event.preventDefault();
+
+            let name=document.getElementById("name").value
+            let email=document.getElementById("email").value
+            let age=document.getElementById("age").value
+            let num=document.getElementById("num").value
+
+            let table=document.getElementById("table")
+
+            let row=document.createElement("tr")
+
+            let c1=document.createElement("td");
+            c1.textContent=name
+
+            let c2=document.createElement("td");
+            c2.textContent=email
+
+            let c3=document.createElement("td");
+            c3.textContent=age
+
+            let c4=document.createElement("td");
+            c4.textContent=num
+
+              row.appendChild(c1)
+                row.appendChild(c2)
+                row.appendChild(c3)
+                row.appendChild(c4)
+
+                table.appendChild(row)
+
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("age").value = "";
+                document.getElementById("num").value = "";
+
+        }
+    </script>
+</body>
+</html>

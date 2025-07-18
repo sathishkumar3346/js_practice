@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="enter a words" id="words"/>
+    <button onclick="check()">check the values</button>
+    <div></div>
+    <script>
+        function check(){
+            let i=[];
+            let words=document.getElementById("words").value
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Viewer</title>
+</head>
+<body>
+
+  <input type="text" id="words" placeholder="Enter words" />
+  <button onclick="check()">Check</button>
+
+  <br><br>
+
+  <select id="selectBox" onchange="showDetails()">
+    <option>Select a word</option>
+  </select>
+
+  <div id="result" style="margin-top: 20px;"></div>
+
+  <script>
+    var wordList = [];
+
+    function check() {
+      var input = document.getElementById("words").value;
+      wordList = input.split(",");
+
+      var select = document.getElementById("selectBox");
+      select.innerHTML = ""; // clear old options
+
+      var defaultOption = document.createElement("option");
+      defaultOption.text = "Select a word";
+      select.appendChild(defaultOption);
+
+      for (var i = 0; i < wordList.length; i++) {
+        var opt = document.createElement("option");
+        opt.value = i;
+        opt.text = wordList[i];
+        select.appendChild(opt);
+      }
+    }
+
+    function showDetails() {
+      var select = document.getElementById("selectBox");
+      var index = select.value;
+
+      if (index === "Select a word" || index === "") return;
+
+      var current = wordList[index];
+      var previous = "";
+      var next = "";
+
+      // Collect previous words
+      for (var i = 0; i < index; i++) {
+        previous += wordList[i] + ",";
+      }
+
+      // Collect next words
+      for (var i = parseInt(index) + 1; i < wordList.length; i++) {
+        next += wordList[i] + ",";
+      }
+
+      var result = "Current: " + current + "<br>";
+      result += "Previous: " + (previous ? previous.trim() : "None") + "<br>";
+      result += "Next: " + (next ? next.trim() : "None");
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+
+</body>
+</html>

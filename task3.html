@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <input type="number" id="inputBox" placeholder="Enter a number"/>
+<button onclick="createOptions()">Generate Options</button>
+<br><br>
+<select id="selectBox"></select>
+<br><br>
+<div id="inp1"> </div>
+
+
+<br><br>
+<script>
+  function createOptions() {
+    const num = document.getElementById("inputBox").value;
+    const select = document.getElementById("selectBox");
+    const inp1=document.getElementById("inp1")
+
+   
+
+    for (let i = 1; i <= num; i++) {
+      let option = document.createElement("option");
+      let input1 = document.createElement("input");
+      let input2= document.createElement("input");
+      let br1 = document.createElement("br");
+
+      option.value = i;
+      option.text = "Option " + i;
+      select.appendChild(option);
+      
+        input1.placeholder = "enter a user name " ;
+        input2.placeholder = "enter a password " ;
+
+      inp1.appendChild(input1)
+      inp1.appendChild(input2)
+      inp1.appendChild(document.createElement("br"));
+
+    }
+   document.getElementById("inputBox").value=""
+
+  }
+</script>
+</body>
+</html>
